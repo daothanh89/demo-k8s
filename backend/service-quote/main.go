@@ -35,7 +35,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("[INFO] method=%s uri=%s", r.Method, r.RequestURI)
+		log.Printf("[INFO] host=%s", r.Host)
 
 		ret := []quote{}
 		for i := 0; i < 6; i++ {
@@ -45,5 +45,5 @@ func main() {
 	})
 
 	log.Println("[INFO] Server is running on port 8000")
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	log.Fatal(http.ListenAndServe(":8001", nil))
 }
