@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "demo-k8s-server/pkg"
 
 func main() {
-	fmt.Println("okok")
+	pkg.StartServer()
 }
