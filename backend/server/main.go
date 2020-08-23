@@ -34,7 +34,7 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("static/build")))
 
 	log.Println("[INFO] Server running on port: 8000")
-	log.Fatal(http.ListenAndServe(":8000", logger(http.DefaultServeMux)))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("SERVER_PORT"), logger(http.DefaultServeMux)))
 }
 
 func logger(handler http.Handler) http.Handler {

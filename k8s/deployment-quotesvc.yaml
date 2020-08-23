@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotesvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: quotesvc
+  template:
+    metadata:
+      labels:
+        component: quotesvc
+    spec:
+      containers:
+        - name: k8s-demo-service-quote
+          image: daongocthanh/k8s-demo-service-quote:1
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SERVER_PORT
+              value: "8000"

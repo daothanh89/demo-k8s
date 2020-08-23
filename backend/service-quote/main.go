@@ -44,6 +44,6 @@ func main() {
 		json.NewEncoder(w).Encode(ret)
 	})
 
-	log.Println("[INFO] Server is running on port 8000")
-	log.Fatal(http.ListenAndServe(":8001", nil))
+	log.Println("[INFO] Server is running on port:" + os.Getenv("SERVER_PORT"))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("SERVER_PORT"), nil))
 }
