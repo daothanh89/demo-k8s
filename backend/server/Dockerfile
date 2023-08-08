@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN go build -ldflags="-s -w" -o appbin main.go
 
-FROM alpine:3.12
+FROM alpine:3.18.3
 WORKDIR /app
 COPY --from=0 /app/appbin /app/appbin
 COPY --from=0 /app/static /app/static
